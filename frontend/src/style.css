@@ -1,0 +1,57 @@
+/* Base CSS for the event card component */
+
+:root {
+  /* Light mode colours */
+  --bg-card: #ffffff;
+  --text-card: #1a1a1a;
+  --border-card: #e0e0e0;
+  --focus-outline: #007acc;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-card: #1e1e1e;
+    --text-card: #f1f1f1;
+    --border-card: #333333;
+    --focus-outline: #569cd6;
+  }
+}
+
+.results {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .results {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.event-card {
+  background-color: var(--bg-card);
+  color: var(--text-card);
+  padding: 1rem;
+  border: 1px solid var(--border-card);
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.event-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  line-height: 1.2;
+}
+
+.event-card:focus-visible {
+  outline: 2px solid var(--focus-outline);
+  outline-offset: 2px;
+}
